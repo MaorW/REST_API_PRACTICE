@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cars-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: cars-rest
+  template:
+    metadata:
+      name: cars-rest-client-pod
+      labels:
+        component: cars-rest
+    spec:
+      containers:
+        - name: cars-rest-server
+          image: learningmw1991/restapi_cars:01
+          ports:
+            - containerPort: 5000

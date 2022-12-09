@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foods-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: foods-rest
+  template:
+    metadata:
+      name: foods-rest-client-pod
+      labels:
+        component: foods-rest
+    spec:
+      containers:
+        - name: foods-rest-server
+          image: learningmw1991/restapi_foods:01
+          ports:
+            - containerPort: 5000
