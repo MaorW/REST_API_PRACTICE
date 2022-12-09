@@ -1,11 +1,3 @@
-# build a new api using flask and python
-# this apu must have 5 functions
-# the functions are:
-# getFood
-# deleteFood   recives id
-# updateFood   recives id
-# addFood
-# getFoodByID  recives id
 from flask import Flask, request
 import json
 
@@ -56,4 +48,5 @@ def getFoodByID(id):
     return json.dumps(newFood)
 
 
-app.run()
+if "__name__" == "__main__":
+    app.run()
