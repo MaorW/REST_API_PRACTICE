@@ -50,4 +50,6 @@ def updateCar(id):
       cars.append(newCar)
       return 'updated',299
 
-app.run() # http://127.0.0.1:5000/cars -> Json
+# app.run() # http://127.0.0.1:5000/cars -> Json
+if "__name__"== "__main__":
+    app.run()
