@@ -9,6 +9,10 @@ foods = [{"id": 1, "name": "Pasta", "Region": "Italy"},
     {"id": 4, "name": "Sushi", "Region": "Japan"}]
 
 
+@app.route('/', methods=['GET'])
+def home():
+    return '<h1 style="color:Blue;"> I love Food! </h1> '
+
 @app.route('/foods', methods=['GET'])
 def getFoods():
     return json.dumps(foods)

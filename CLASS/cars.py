@@ -13,7 +13,7 @@ cars = [{'id': 1, 'make': 'audi', 'model': 'A7', 'year': 2022},
 
 @app.route('/', methods=['GET'])
 def home():
-    return '<h1 style="color:red;"> I love DevOps </h1> '
+    return '<h1 style="color:red;"> I love Cars </h1> '
 
 
 @app.route('/cars', methods=['GET'])
