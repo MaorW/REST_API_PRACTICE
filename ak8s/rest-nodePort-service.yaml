@@ -4,10 +4,14 @@ metadata:
   name: cars-rest-nod-port
 spec:
   type: NodePort
-  ports:
-    - port: 5000
-      targetPort: 5001
-      nodePort: 30001
-      protocol: TCP
   selector:
-    component: cars-rest
+    component: rest-server
+  ports:
+    - port: 3000
+      targetPort: cars-rest-srv
+      nodePort: 30001
+      name: cars-rest-svc
+    - port: 3001
+      targetPort: foods-rest-srv
+      nodePort: 30002
+      name: foods-rest-svc

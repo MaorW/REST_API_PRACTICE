@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      component: cars-rest
+      component: rest-server
   template:
     metadata:
       name: cars-rest-client-pod
       labels:
-        component: cars-rest
+        component: rest-server
     spec:
       containers:
         - name: cars-rest-server
@@ -19,17 +19,4 @@ spec:
           ports:
             - containerPort: 5000
               protocol: TCP
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: cars-rest-service
-spec:
-  selector:
-    component: cars-rest
-  ports:
-  - name: cars-rest-port
-    protocol: TCP
-    port: 5001
-    targetPort: 5000
+              name: cars-rest-srv
