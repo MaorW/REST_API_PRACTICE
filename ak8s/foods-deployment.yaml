@@ -15,6 +15,21 @@ spec:
     spec:
       containers:
         - name: foods-rest-server
-          image: learningmw1991/restapi_foods:01
+          image: learningmw1991/restapi_foods:02
           ports:
             - containerPort: 5000
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: foods-rest-service
+spec:
+  selector:
+    component: foods-rest
+  ports:
+  - name: cars-rest-port
+    protocol: TCP
+    port: 5002
+    targetPort: 5000

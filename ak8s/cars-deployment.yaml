@@ -15,6 +15,21 @@ spec:
     spec:
       containers:
         - name: cars-rest-server
-          image: learningmw1991/restapi_cars:01
+          image: learningmw1991/restapi_cars:02
           ports:
             - containerPort: 5000
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cars-rest-service
+spec:
+  selector:
+    component: cars-rest
+  ports:
+  - name: cars-rest-port
+    protocol: TCP
+    port: 5001
+    targetPort: 5000
